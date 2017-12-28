@@ -2,4 +2,17 @@
     <string name="app_name">CryptoCoin</string>
     <string name="crypto_toolbar_list_title">CryptoCoin</string>
     <string name="crypto_detail_toolbar_exchange">Exchanges</string>
+
+    <!-- Exchange Strings -->
+    <string name="crypto_data_market">Market</string>
+    <string name="crypto_data_type">Type</string>
+    <string name="crypto_data_symbol">Symbol</string>
+    <string name="crypto_data_price">Price</string>
+    <string name="crypto_data_open_24_hour">Open 24 Hour</string>
+    <string name="crypto_data_high_24_hour">High 24 Hour</string>
+    <string name="crypto_data_low_24_hour">Low 24 Hour</string>
+    <string name="crypto_data_last_volume">Last Volume</string>
+    <string name="crypto_data_volume_24_hour">Volume 24 Hour</string>
+    <string name="crypto_data_avg_price">Avg Price: $</string>
+
 </resources>

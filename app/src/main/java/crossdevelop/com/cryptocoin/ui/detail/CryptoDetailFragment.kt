@@ -15,6 +15,7 @@ import crossdevelop.com.cryptocoin.model.CryptoCoinListModel
 import crossdevelop.com.cryptocoin.ui.exchange.CryptoExchangeFragment
 import crossdevelop.com.cryptocoin.widgets.CryptoFragmentPagerAdapter
 import crossdevelop.com.cryptocoin.widgets.CryptoFragmentPagerItem
+import crossdevelop.com.cryptocoin.widgets.shortenDouble
 import kotlinx.android.synthetic.main.crypto_detail_fragment_view.view.*
 
 /**
@@ -60,6 +61,8 @@ class CryptoDetailFragment : Fragment(), CryptoDetailContract.View {
         val view = inflater.inflate(getContentLayoutId(), container, false)
 
         view.cryptoDetailToolbar.title = "${coin.name} (${coin.symbol})"
+        view.cryptoDetailToolbar.subtitle =
+                "${context.getString(R.string.crypto_data_avg_price)}${shortenDouble(coin.priceUsd!!, 2)}"
 
         return view
     }

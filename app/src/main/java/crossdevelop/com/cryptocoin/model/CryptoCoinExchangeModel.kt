@@ -1,9 +1,11 @@
 package crossdevelop.com.cryptocoin.model
 
+import android.content.Context
 import android.os.Parcel
 import android.os.Parcelable
 import com.google.gson.annotations.Expose
 import com.google.gson.annotations.SerializedName
+import crossdevelop.com.cryptocoin.R
 import crossdevelop.com.cryptocoin.ui.exchange.recycler.CryptoExchangeItemModel
 import crossdevelop.com.cryptocoin.ui.exchange.recycler.ICryptoExchangeModel
 import crossdevelop.com.cryptocoin.widgets.shortenDouble
@@ -40,19 +42,17 @@ data class CryptoCoinExchangeModel(@Expose @SerializedName("TYPE") val type: Str
                                    @Expose @SerializedName("LOW24HOUR") val lowTwenFourHour: Double? = 0.0)
     : Parcelable {
 
-    fun getExchangeViewItems(): List<ICryptoExchangeModel> = listOf(
-            CryptoExchangeItemModel("Market", market),
-            CryptoExchangeItemModel("Type", type),
-            CryptoExchangeItemModel("Symbol", fromSymbol),
-            CryptoExchangeItemModel("Price", getShortenedDoubleString(price!!)),
-            CryptoExchangeItemModel("Open 24 Hour", getShortenedDoubleString(openTwenFourHour!!)),
-            CryptoExchangeItemModel("High 24 Hour", getShortenedDoubleString(highTwenFourHour!!)),
-            CryptoExchangeItemModel("Low 24 Hour", getShortenedDoubleString(lowTwenFourHour!!)),
-            CryptoExchangeItemModel("Last Volume", getShortenedDoubleString(lastVolume!!)),
-            CryptoExchangeItemModel("Volume 24 Hour", getShortenedDoubleString(volumeTwenFourHour!!)))
+    fun getExchangeViewItems(context: Context): List<ICryptoExchangeModel> = listOf(
+            CryptoExchangeItemModel(context.getString(R.string.crypto_data_market), market),
+            CryptoExchangeItemModel(context.getString(R.string.crypto_data_type), type),
+            CryptoExchangeItemModel(context.getString(R.string.crypto_data_symbol), fromSymbol),
+            CryptoExchangeItemModel(context.getString(R.string.crypto_data_price), "$${shortenDouble(price!!, 2)}"),
+            CryptoExchangeItemModel(context.getString(R.string.crypto_data_open_24_hour), "$${shortenDouble(openTwenFourHour!!, 2)}"),
+            CryptoExchangeItemModel(context.getString(R.string.crypto_data_high_24_hour), "$${shortenDouble(highTwenFourHour!!, 2)}"),
+            CryptoExchangeItemModel(context.getString(R.string.crypto_data_low_24_hour), "$${shortenDouble(lowTwenFourHour!!, 2)}"),
+            CryptoExchangeItemModel(context.getString(R.string.crypto_data_last_volume), shortenDouble(lastVolume!!, 0).toString()),
+            CryptoExchangeItemModel(context.getString(R.string.crypto_data_volume_24_hour), shortenDouble(volumeTwenFourHour!!, 0).toString()))
 
-    private fun getShortenedDoubleString(number: Double): String =
-            shortenDouble(number, 0).toString()
 
     constructor(source: Parcel) : this(
             source.readString(),

@@ -46,7 +46,7 @@ class CryptoExchangeFragment : Fragment() {
         adapter = CryptoExchangeAdapter(context)
         view.cryptoExchangeRecycler.layoutManager = LinearLayoutManager(context)
         view.cryptoExchangeRecycler.adapter = adapter
-        adapter.addItems(exchange.getExchangeViewItems(), true)
+        adapter.addItems(exchange.getExchangeViewItems(context), true)
 
         return view
     }

@@ -1,5 +1,6 @@
 package crossdevelop.com.cryptocoin.ui.list
 
+import io.reactivex.Scheduler
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.disposables.CompositeDisposable
 import io.reactivex.disposables.Disposable
@@ -8,7 +9,9 @@ import io.reactivex.schedulers.Schedulers
 /**
  * Created by Ian Cross on 12/23/17.
  */
-class CryptoListPresenter(private val interactor: CryptoListContract.Interactor) :
+class CryptoListPresenter(private val interactor: CryptoListContract.Interactor,
+                          private val subscriber: Scheduler? = Schedulers.io(),
+                          private val observer: Scheduler? = AndroidSchedulers.mainThread()) :
         CryptoListContract.Presenter {
 
     companion object {
@@ -58,8 +61,8 @@ class CryptoListPresenter(private val interactor: CryptoListContract.Interactor)
     override fun getItems() {
         getView().showProgress(true)
         addDisposable(interactor.getItems()
-                .subscribeOn(Schedulers.io())
-                .observeOn(AndroidSchedulers.mainThread())
+                .subscribeOn(subscriber)
+                .observeOn(observer)
                 .subscribe(
                 { items ->
                     getView().setItems(items)

@@ -28,9 +28,9 @@ data class CryptoCoinDataModel(@Expose @SerializedName("Algorithm") val algorith
     fun getHeaderInfoText(): CharSequence =
             TextUtils.concat(
                     "Algorithm: ", getAlgorithmText(),
-                    "\nProofType: ", getProofType(),
-                    "\nBlockNumber: ", getBlockText(),
-                    "\nTotalCoinsMined: ", getCoinsMinedText())
+                    "\nProof Type: ", getProofType(),
+                    "\nBlock Number: ", getBlockText(),
+                    "\nTotal Coins Mined: ", getCoinsMinedText())
 
 
     private fun getAlgorithmText(): SpannableString {
