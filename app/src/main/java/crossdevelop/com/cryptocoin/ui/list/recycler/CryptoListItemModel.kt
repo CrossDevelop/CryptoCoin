@@ -11,6 +11,7 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import crossdevelop.com.cryptocoin.R
 import crossdevelop.com.cryptocoin.model.CryptoCoinListModel
+import crossdevelop.com.cryptocoin.widgets.shortenDouble
 import java.math.BigDecimal
 
 /**
@@ -27,20 +28,17 @@ class CryptoListItemModel(private val cryptoItem: CryptoCoinListModel) : ICrypto
 
     fun getCoinNameText() = cryptoItem.name!!
 
-    fun getCoinPriceText() = "$${cryptoItem.priceUsd}"
+    fun getCoinPriceText() = "$${shortenDouble(cryptoItem.priceUsd!!, 2)}"
 
     fun getCoinChangeText(context: Context): CharSequence {
 
-        val oneHourDouble = BigDecimal(cryptoItem.oneHourChange!!)
-                .setScale(0, BigDecimal.ROUND_HALF_UP)
+        val oneHourDouble = shortenDouble(cryptoItem.oneHourChange!!, 0)
         val oneHourSpan = setChangeColor(context, "$oneHourDouble%   1h\n", oneHourDouble)
 
-        val twentyFourDouble = BigDecimal(cryptoItem.twenFourHourChange!!)
-                .setScale(0, BigDecimal.ROUND_HALF_UP)
+        val twentyFourDouble = shortenDouble(cryptoItem.twenFourHourChange!!, 0)
         val twentyFourSpan = setChangeColor(context, "$twentyFourDouble% 24h\n", twentyFourDouble)
 
-        val sevenDayDouble = BigDecimal(cryptoItem.sevenDayChange!!)
-                .setScale(0, BigDecimal.ROUND_HALF_UP)
+        val sevenDayDouble = shortenDouble(cryptoItem.sevenDayChange!!, 0)
         val sevenDaySpan = setChangeColor(context, "$sevenDayDouble%   7d", sevenDayDouble)
 
         return TextUtils.concat(oneHourSpan, twentyFourSpan, sevenDaySpan)

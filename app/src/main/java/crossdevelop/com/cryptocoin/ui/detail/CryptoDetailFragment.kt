@@ -77,16 +77,15 @@ class CryptoDetailFragment : Fragment(), CryptoDetailContract.View {
     private fun setupViewPager(exchanges: List<CryptoCoinExchangeModel>) {
 
         fragmentAdapter = CryptoFragmentPagerAdapter(fragmentManager, exchanges.map { exchange ->
-            CryptoFragmentPagerItem(exchange.market, CryptoExchangeFragment.newInstance(exchange))
+            CryptoFragmentPagerItem(exchange.market!!, CryptoExchangeFragment.newInstance(exchange))
         })
 
         view?.cryptoDetailViewPager?.adapter = fragmentAdapter
         view?.cryptoDetailTabLayout?.setupWithViewPager(view?.cryptoDetailViewPager)
-//        view?.cryptoDetailViewPager?.setCurrentItem(0, false)
     }
 
     override fun showProgress(show: Boolean) {
-        // no impl
+        // NO IMPL
     }
 
     override fun displayError(error: String) {
@@ -95,9 +94,8 @@ class CryptoDetailFragment : Fragment(), CryptoDetailContract.View {
 
     override fun setCoinDetail(coinData: CryptoCoinDataModel) {
         view?.cryptoDetailToolbarInfoTv?.text = coinData.getHeaderInfoText()
-        setupViewPager(coinData.exchanges)
+        setupViewPager(coinData.exchanges!!)
     }
-
 
     /**
      * Returns Fragment Content layout id

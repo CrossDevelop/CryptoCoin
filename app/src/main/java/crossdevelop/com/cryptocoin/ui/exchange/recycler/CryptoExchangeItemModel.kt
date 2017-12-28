@@ -28,7 +28,7 @@ class CryptoExchangeItemModel(private val title: String, private val info: Strin
         } else {
             SpannableString(info)
         }
-        boldSpan.setSpan(StyleSpan(Typeface.BOLD), 0, boldSpan.length - 1, 0)
+        boldSpan.setSpan(StyleSpan(Typeface.BOLD), 0, boldSpan.length, 0)
         return boldSpan
     }
 

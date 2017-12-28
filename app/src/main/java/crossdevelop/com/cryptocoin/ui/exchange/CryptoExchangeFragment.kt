@@ -51,7 +51,6 @@ class CryptoExchangeFragment : Fragment() {
         return view
     }
 
-
     /**
      * Returns Fragment Content layout id
      */
