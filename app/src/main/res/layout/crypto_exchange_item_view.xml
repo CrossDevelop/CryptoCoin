@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<TextView android:id="@+id/cryptoExchangeDetailTv"
+          xmlns:android="http://schemas.android.com/apk/res/android"
+          xmlns:tools="http://schemas.android.com/tools"
+          android:layout_width="match_parent"
+          android:layout_height="wrap_content"
+          android:gravity="center_vertical"
+          android:minHeight="@dimen/min_touch_target_size"
+          android:paddingBottom="@dimen/padding_medium"
+          android:paddingEnd="@dimen/padding_large"
+          android:paddingStart="@dimen/padding_large"
+          android:paddingTop="@dimen/padding_medium"
+          tools:text="Market: Coinbase"/>

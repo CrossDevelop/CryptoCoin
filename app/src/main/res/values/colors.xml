@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <color name="colorPrimary">#673AB7</color>
+    <color name="colorPrimaryDark">#320b86</color>
+    <color name="colorPrimaryLight">#9a67ea</color>
+    <color name="colorPrimaryLightTab">#b085f5</color>
+
+    <color name="colorAccent">#4fc3f7</color>
+    <color name="colorAccentLight">#8bf6ff</color>
+    <color name="colorAccentDark">#0093c4</color>
+
+    <color name="colorToolbarSubtitle">#e0e0e0</color>
+
+    <color name="coinChangePositive">#4CAF50</color>
+    <color name="coinChangeNegative">#F44336</color>
+    <color name="coinChangeNeutral">@android:color/tertiary_text_dark</color>
+
+</resources>

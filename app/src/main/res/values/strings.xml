@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">CryptoCoin</string>
+    <string name="crypto_toolbar_list_title">CryptoCoin</string>
+    <string name="crypto_detail_toolbar_exchange">Exchanges</string>
+</resources>

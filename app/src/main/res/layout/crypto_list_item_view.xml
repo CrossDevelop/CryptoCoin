@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:minHeight="@dimen/min_touch_target_size"
+    android:paddingBottom="@dimen/padding_medium"
+    android:paddingEnd="@dimen/padding_large"
+    android:paddingStart="@dimen/padding_large"
+    android:paddingTop="@dimen/padding_medium">
+
+    <TextView
+        android:id="@+id/cryptoCoinNameTv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ellipsize="end"
+        android:gravity="center"
+        android:maxLines="1"
+        android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+        android:textColor="@android:color/primary_text_dark"
+        android:textStyle="bold"
+        tools:text="Bitcoin (BTC)"/>
+
+
+    <TextView
+        android:id="@+id/cryptCoinPriceTv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/coin_price_margin"
+        android:gravity="center_vertical|end"
+        android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+        tools:text="$13,000 USD"/>
+
+    <TextView
+        android:id="@+id/cryptCoinChangeTv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="end"
+        android:layout_marginTop="@dimen/coin_price_margin"
+        android:gravity="end"
+        android:textAppearance="@style/TextAppearance.AppCompat.Subhead"
+        android:textStyle="bold"
+        tools:text="-7%   1h\n1% 24h\n-12%   7d"/>
+
+
+</FrameLayout>
